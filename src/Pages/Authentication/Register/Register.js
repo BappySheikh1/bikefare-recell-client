@@ -6,6 +6,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 const Register = () => {
     const [error,setError]=useState('') 
     const {createUser}=useContext(AuthContext)
+    const imageHostKey=process.env.REACT_APP_imgbb_key
 
     const handleSubmitLogin=event=>{
         event.preventDefault();
@@ -15,11 +16,22 @@ const Register = () => {
         const email=form.email.value
         const password=form.password.value
         console.log(email,password,name,photo);
+        const formData=new FormData()
+        formData.append('image',photo)
+        const uri =`https://api.imgbb.com/1/upload?key=${imageHostKey}`
+        fetch(uri,{
+          method:"POST",
+          body: formData
+       })
+       .then((res)=>res.json())
+       .then(data =>{
+        console.log(data);
+       })
         createUser(email,password)
         .then(result =>{
             const user =result.user
             console.log(user);
-        })
+        }) 
     }
 
     return (

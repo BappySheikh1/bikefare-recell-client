@@ -16,6 +16,7 @@ const handleSubmitLogin=event=>{
     .then(result =>{
         const user =result.user
         console.log(user);
+        
     })
 }
 

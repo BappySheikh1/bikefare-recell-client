@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
 const {user,LogOutUser} =useContext(AuthContext)
@@ -8,7 +9,7 @@ const {user,LogOutUser} =useContext(AuthContext)
 const handleLogOut=()=>{
   LogOutUser()
   .then(()=>{
-
+   toast.success('Logout SuccessFull')
   })
   .catch(err =>{
     console.log(err);
@@ -18,8 +19,18 @@ const handleLogOut=()=>{
     const menuItem =<React.Fragment>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blogs'>Blog</Link></li>
-        <li><Link to='/register'>Register</Link></li>
-        <li><Link><button onClick={handleLogOut}>Log Out</button></Link></li>
+        {
+          user?.uid ?
+          <>
+          <li><Link to='dashboard'>Dashboard</Link></li>
+          <li><Link><button onClick={handleLogOut}>Log Out</button></Link></li>
+          </>
+          :
+          <>
+          <li><Link to='/login'>Log in</Link></li>
+          </>
+        }
+        
     </React.Fragment>
     return (
         <div>
@@ -46,7 +57,7 @@ const handleLogOut=()=>{
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to='/login' className="btn btn-warning rounded-lg">Log In</Link>
+    <Link to='/register' className="btn btn-warning rounded-lg">Register</Link>
   </div>
          </div>
         </div>
