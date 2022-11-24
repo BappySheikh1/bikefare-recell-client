@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProductCategory = ({product}) => {
-    console.log(product);
+    // console.log(product);
     const {img,name,category_id}=product
     return (
         <div>
