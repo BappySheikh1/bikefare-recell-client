@@ -5,7 +5,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Register = () => {
     const [error,setError]=useState('') 
-    const {createUser,updateUserProfile}=useContext(AuthContext)
+    const {createUser,updateUserProfile,socialLoginUser}=useContext(AuthContext)
     const imageHostKey=process.env.REACT_APP_imgbb_key
 
     const handleSubmitRegister=event=>{
@@ -36,6 +36,16 @@ const Register = () => {
         }) 
     }
 
+    const handleGoogleLogIn=()=>{
+      socialLoginUser()
+      .then(result =>{
+        const user =result.user
+        console.log(user);
+      })
+      .catch(err =>{
+        console.log(err);
+      })
+    }
     return (
         <div>
         <div className="hero  bg-base-200">
@@ -83,13 +93,13 @@ const Register = () => {
             <Link className="label-text-alt link link-hover">Forgot password?</Link>
           </label>
         </div>
-
+        <p className='text-red-700 my-2'>{error}</p>
         <div className="form-control mt-6">
           <button className="btn btn-primary bg-blue-700 hover:bg-blue-600 border-none rounded">Login</button>
         </div>
       </form>
-      <div>
-        <p className='text-red-700 my-2'>{error}</p>
+      <div className='text-center'>
+        <button onClick={handleGoogleLogIn} className='btn btn-outline rounded-lg'>Google Login</button>
       </div>
      <p className='text-center mb-7'>Already have an account <Link className='text-red-300' to='/login'> Login</Link></p>   
     </div>
