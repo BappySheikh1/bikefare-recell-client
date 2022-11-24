@@ -1,9 +1,14 @@
 import React from 'react';
+import HomeBanner from './HomeBanner/HomeBanner';
+import Location from './Location/Location';
+import SecondHandProduct from './SecondHandProduct/SecondHandProduct';
 
 const Home = () => {
     return (
         <div>
-            <h2>This is home component </h2>
+            <HomeBanner />
+            <SecondHandProduct />
+            <Location />
         </div>
     );
 };

@@ -48,7 +48,7 @@ const handleLogOut=()=>{
     </div>
     <Link to='/' className="btn btn-ghost normal-case text-xl">
       {/* <img src={} className='w-24' alt="" /> */}
-      Assignment 12
+      Bikefair
     </Link>
   </div>
   <div className="navbar-center hidden lg:flex">

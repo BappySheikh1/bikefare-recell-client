@@ -5,10 +5,10 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Register = () => {
     const [error,setError]=useState('') 
-    const {createUser}=useContext(AuthContext)
+    const {createUser,updateUserProfile}=useContext(AuthContext)
     const imageHostKey=process.env.REACT_APP_imgbb_key
 
-    const handleSubmitLogin=event=>{
+    const handleSubmitRegister=event=>{
         event.preventDefault();
         const form =event.target
         const name=form.name.value
@@ -25,8 +25,9 @@ const Register = () => {
        })
        .then((res)=>res.json())
        .then(data =>{
-        console.log(data);
+        console.log(data.data.url);
        })
+
         createUser(email,password)
         .then(result =>{
             const user =result.user
@@ -42,8 +43,8 @@ const Register = () => {
      <img src={logo} alt="" />
     </div>
     <div className="rounded card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <h1 className="text-4xl font-bold mx-auto mt-6 my-4">Login now!</h1>
-      <form onSubmit={handleSubmitLogin} className="card-body">
+      <h1 className="text-4xl font-bold mx-auto mt-6 my-4">Register now!</h1>
+      <form onSubmit={handleSubmitRegister} className="card-body">
 
         <div className="form-control">
           <label className="label">
@@ -58,6 +59,12 @@ const Register = () => {
           </label>
           <input type="file" name='photo' placeholder="image"  />
         </div>
+
+        <select className="select select-accent w-full max-w-xs">
+           <option disabled selected>Dark mode or light mode?</option>
+           <option>Dark mode</option>
+           <option>Light mode</option>
+        </select>
 
         <div className="form-control">
           <label className="label">

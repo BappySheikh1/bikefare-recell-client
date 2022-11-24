@@ -1,11 +1,19 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/login.png'
 import { AuthContext } from '../../../contexts/AuthProvider';
+import toast  from 'react-hot-toast';
 
 const Login = () => {
 const [error,setError]=useState('')
-const {LoginUser}=useContext(AuthContext)
+const [userEmail,setUserEmail]=useState('')
+const {LoginUser,forgetUserPassword}=useContext(AuthContext)
+
+const navigate=useNavigate()
+    const location=useLocation()
+    let from = location.state?.from?.pathname || "/";
+
+
 const handleSubmitLogin=event=>{
     event.preventDefault();
     const form =event.target
@@ -16,10 +24,19 @@ const handleSubmitLogin=event=>{
     .then(result =>{
         const user =result.user
         console.log(user);
-        
+        navigate(from, { replace: true });
     })
 }
 
+const handleOnBlurEmail=event=>{
+  setUserEmail(event.target.value)
+}
+const handleUserEmailForget=()=>{
+  forgetUserPassword(userEmail)
+    .then(()=>{
+      return toast.success('forget Successfully Please check your email')
+    })
+}
     return (
         <div>
         <div className="hero  bg-base-200">
@@ -34,7 +51,7 @@ const handleSubmitLogin=event=>{
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="text" name='email' placeholder="email" className="input input-bordered" />
+          <input type="text" onBlur={handleOnBlurEmail} name='email' placeholder="email" className="input input-bordered" />
         </div>
 
         <div className="form-control">
@@ -43,7 +60,7 @@ const handleSubmitLogin=event=>{
           </label>
           <input type="password" name='password' placeholder="********" className="input input-bordered" />
           <label className="label">
-            <Link className="label-text-alt link link-hover">Forgot password?</Link>
+            <Link onClick={handleUserEmailForget}  className="label-text-alt link link-hover">Forgot password?</Link>
           </label>
         </div>
 
