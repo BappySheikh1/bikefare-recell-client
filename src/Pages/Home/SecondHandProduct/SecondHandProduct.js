@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
 import ProductCategory from './ProductCategory';
 
 const SecondHandProduct = () => {
-    const [products,setProducts]=useState([])
-    useEffect(()=>{
-        fetch('http://localhost:4000/category')
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data);
-            setProducts(data)
-        })
-    },[])
+    const {data:products =[],isLoading} = useQuery({ 
+        queryKey: ['category'], 
+        queryFn: async ()=>{
+           const res=await fetch('http://localhost:4000/category')
+           const data =await res.json()
+           return data
+        }
+     })
+     if(isLoading){
+        return <div className='text-center my-6'>
+            <button className="btn loading">loading</button>
+        </div>
+     }
+
     return (
         <div className='my-28'>
             <div className='mb-7'>
