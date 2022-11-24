@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import {AuthContext} from "../../../../contexts/AuthProvider"
 
 const ProductModal = ({product}) => {
+  const [modal,setModal]=useState(null)
     const {user}=useContext(AuthContext)
     const handleSubmit=(event)=>{
      event.preventDefault();
@@ -31,9 +32,11 @@ const ProductModal = ({product}) => {
     })
      .then(res => res.json())
      .then(data => {
-        console.log(data);
+        // console.log(data);
         if(data.acknowledged){
           toast.success('That the item is booked')
+          form.reset();
+          setModal(null)
         }
      })
 

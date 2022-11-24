@@ -13,11 +13,8 @@ const AuthProvider = ({children}) => {
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
-  const updateUserProfile=(name,photoURL)=>{
-    return updateProfile(auth.currentUser,{
-        displayName: name,
-        photoURL: photoURL
-    })
+  const updateUserProfile=(provider)=>{
+    return updateProfile(auth.currentUser,provider)
   }
 
   const googleProvider= new GoogleAuthProvider()

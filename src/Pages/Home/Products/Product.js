@@ -2,6 +2,7 @@ import React from 'react';
 import ProductModal from './ProductModal/ProductModal';
 
 const Product = ({product}) => {
+  
   // console.log(product);
   const {img,name,original_price,resell_price,used,location}=product
   // setProductModal(product)
@@ -25,7 +26,7 @@ const Product = ({product}) => {
                 </div>
              </div>
              <div>
-          <ProductModal product={product}/>
+          <ProductModal product={product} />
          </div>
         </div>
     );

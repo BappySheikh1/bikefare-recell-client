@@ -6,34 +6,70 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 const Register = () => {
     const [error,setError]=useState('') 
     const {createUser,updateUserProfile,socialLoginUser}=useContext(AuthContext)
-    const imageHostKey=process.env.REACT_APP_imgbb_key
+    // const imageHostKey=process.env.REACT_APP_imgbb_key
 
     const handleSubmitRegister=event=>{
         event.preventDefault();
         const form =event.target
         const name=form.name.value
-        const photo=form.photo.files[0]
+        const photo=form.photo.value
         const select=form.select.value
         const email=form.email.value
         const password=form.password.value
-        console.log(email,password,name,photo);
-        const formData=new FormData()
-        formData.append('image',photo)
-        const uri =`https://api.imgbb.com/1/upload?key=${imageHostKey}`
-        fetch(uri,{
-          method:"POST",
-          body: formData
-       })
-       .then((res)=>res.json())
-       .then(data =>{
-        console.log(data.data.url);
-       })
+        // console.log(select);
+      //   const formData=new FormData()
+      //   formData.append('image',photo)
+      //   const uri =`https://api.imgbb.com/1/upload?key=${imageHostKey}`
+      //   fetch(uri,{
+      //     method:"POST",
+      //     body: formData
+      //  })
+      //  .then((res)=>res.json())
+      //  .then(data =>{
+      //   console.log(data.data.url);
+      //  })
 
         createUser(email,password)
         .then(result =>{
             const user =result.user
             console.log(user);
+            handleUpdateProfile(name,photo)
+
+            const userInfo={
+              name:name,
+              email: email,
+              select:select
+            }
+            fetch('http://localhost:4000/users',{
+              method: "POST",
+              headers:{
+                "Content-type":"application/json"
+              },
+              body: JSON.stringify(userInfo)
+            })
+            .then(res =>res.json())
+            .then(data=>{
+              console.log(data);
+            })
+
+
         }) 
+        .catch(err=>{
+          setError(err.message)
+        })
+    }
+    const handleUpdateProfile=(name,photoURL)=>{
+       const provider={
+        displayName: name,
+        photoURL:photoURL
+       }
+       updateUserProfile(provider)
+       .then(()=>{
+
+       })
+       .catch(err =>{
+        console.log(err);
+       })
     }
 
     const handleGoogleLogIn=()=>{
@@ -68,12 +104,12 @@ const Register = () => {
           <label className="label">
             <span className="label-text">Image</span>
           </label>
-          <input type="file" name='photo' placeholder="image"  />
+          <input type="text" name='photo' placeholder="photoURL" className="input input-bordered" />
         </div>
 
         <select name='select' className="select mt-3 w-full max-w-xs input input-bordered">
-           <option disabled selected>Select your position</option>
-           <option defaultValue='Buyer'>Buyer</option>
+           <option defaultValue='Select your position' disabled >Select your position</option>
+           <option defaultValue='Buyer' >Buyer</option>
            <option defaultValue='seller'>Seller</option>
         </select>
 
