@@ -10,7 +10,7 @@ const Products = () => {
     return (
         <div>
          <h3 className='text-5xl'>This is category page </h3>
-         <div className='gap-5'>
+         <div className='gap-5 grid grid-cols-1 md:grid-cols-2'>
             {
               products.map(product => <Product key={product._id} product={product}/>)
             }

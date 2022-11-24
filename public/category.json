@@ -1,20 +1,20 @@
 [
     {
         "category_id": 1,
-        "img": "https://i.ibb.co/wMpQCZz/bee-eaters-with-multicolored-feathers-   sitting-tree-branch.jpg",
-        "name": "The Bird"
+        "img": "https://i.ibb.co/FDvF4p1/613tyr2-qv-L-SL1500.jpg",
+        "name": "YAMAHA Bike"
        
       },
       {
         "category_id": 3,
-        "img": "https://i.ibb.co/wMpQCZz/bee-eaters-with-multicolored-feathers-   sitting-tree-branch.jpg",
-        "name": "The Bird"
+        "img": "https://i.ibb.co/MMgP79K/images.png",
+        "name": "SUZUKI Bike"
         
       },
       {
         "category_id": 2,
-        "img": "https://i.ibb.co/wMpQCZz/bee-eaters-with-multicolored-feathers-   sitting-tree-branch.jpg",
-        "name": "The Bird"
+        "img": "https://i.ibb.co/tqxkXKV/349453.webp",
+        "name": "Honda Bike"
       
       }
 ]

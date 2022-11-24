@@ -13,6 +13,7 @@ const Register = () => {
         const form =event.target
         const name=form.name.value
         const photo=form.photo.files[0]
+        const select=form.select.value
         const email=form.email.value
         const password=form.password.value
         console.log(email,password,name,photo);
@@ -60,10 +61,10 @@ const Register = () => {
           <input type="file" name='photo' placeholder="image"  />
         </div>
 
-        <select className="select select-accent w-full max-w-xs">
-           <option disabled selected>Dark mode or light mode?</option>
-           <option>Dark mode</option>
-           <option>Light mode</option>
+        <select name='select' className="select mt-3 w-full max-w-xs input input-bordered">
+           <option disabled selected>Select your position</option>
+           <option defaultValue='Buyer'>Buyer</option>
+           <option defaultValue='seller'>Seller</option>
         </select>
 
         <div className="form-control">

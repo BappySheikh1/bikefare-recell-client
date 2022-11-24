@@ -4,7 +4,6 @@ import Main from "../Layout/Main";
 import Login from "../Pages/Authentication/Login/Login";
 import Register from "../Pages/Authentication/Register/Register";
 import Blogs from "../Pages/Blogs/Blogs";
-import Dashboard from "../Pages/Dashboard/Dashboard";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import Home from "../Pages/Home/Home";
 import Products from "../Pages/Home/Products/Products";
@@ -43,7 +42,7 @@ export const router =createBrowserRouter([
    {
     path:'/dashboard',
     errorElement: <ErrorPage />,
-    element: <DashboardLayout></DashboardLayout>,
+    element: <DashboardLayout></DashboardLayout> ,
     children:[
         {
             path:'/dashboard/myorder',
