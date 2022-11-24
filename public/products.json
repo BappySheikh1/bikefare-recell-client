@@ -1,92 +1,101 @@
-[
+[ 
     {
-      "category_id": 1,
+      "category_id": "1",
       "img": "https://i.ibb.co/SQdB6kC/yamaha-mt-15.webp",
       "name": "YAMAHA MT-15",
-      "original_price": 400,
+      "original_price": 4000,
+      "sellerName":"Adnan Emon",
       "location": "khulna,narail",
-      "resell_price": 600,
-      "used": 3,
-      "date": -2007
+      "resell_price": 3500,
+      "used": 3
+      
     },
     {
-      "category_id": 1,
+      "category_id": "1",
       "img": "https://i.ibb.co/6bHV9J6/maxresdefault.jpg",
       "name": "YAMAHA FZ-S",
-      "original_price": 400,
+      "original_price": 3000,
+      "sellerName":"Ahsan Habib",
       "location": "khulna,narail",
-      "resell_price": 600,
-      "used": 2,
-      "date": -2007
+      "resell_price": 2500,
+      "used": 2
+    
     },
     {
-      "category_id": 1,
+      "category_id": "1",
       "img": "https://i.ibb.co/343f8pt/yzf-r15-right-front-three-quarter-7.webp",
       "name": "YAMAHA R15",
-      "original_price": 400,
+      "original_price": 5000,
+      "sellerName":"Shawon Ahmed",
       "location": "khulna,narail",
-      "resell_price": 600,
-      "used": 2,
-      "date": -2007
+      "resell_price": 4000,
+      "used": 2
+      
     },
     {
-      "category_id": 2,
+      "category_id": "2",
       "img": "https://i.ibb.co/Mn87LCh/143807-honda-cbr-150r.webp",
       "name": "Honda CBR 150R",
-      "original_price": 400,
+      "original_price": 5000,
+      "sellerName":"Shipon Gazi",
       "location": "khulna,narail",
-      "resell_price": 600,
-      "used": 2,
-      "date": -2007
+      "resell_price": 3800,
+      "used": 2
+      
     },
     {
-      "category_id": 2,
+      "category_id": "2",
       "img": "https://i.ibb.co/BTfCdfH/honda-x-blade.jpg",
       "name": "Honda X-Blade",
-      "original_price": 400,
+      "original_price": 3500,
+      "sellerName":"Robiul Islam",
       "location": "khulna,narail",
-      "resell_price": 600,
-      "used": 11,
-      "date": -2007
+      "resell_price": 2500,
+      "used": 11
+      
     },
     {
-      "category_id": 2,
+      "category_id": "2",
       "img": "https://i.ibb.co/4KzNRWS/honda-hornet-2-0-14.jpg",
       "name": "Honda Hornet 2.0",
-      "original_price": 400,
+      "original_price": 3000,
+      "sellerName":"Maqsudur Rohman",
       "location": "khulna,narail",
-      "resell_price": 600,
-      "used": 6,
-      "date": -2007
+      "resell_price": 2600,
+      "used": 6
+      
     },
     {
-      "category_id": 3,
+      "category_id": "3",
       "img": "https://i.ibb.co/h72YPG2/variant-color-image-160682555276344.png",
-      "name": "SUZUKI GXR",
-      "original_price": 400,
+      "name": "SUZUKI Gsx",
+      "original_price": 4000,
+      "sellerName":"Mehedi Hasan",
       "location": "khulna,narail",
-      "resell_price": 600,
-      "used": 2,
-      "date": 43
+      "resell_price": 3200,
+      "used": 2
+      
     },
     {
-      "category_id": 3,
+      "category_id": "3",
       "img": "https://i.ibb.co/tYJDnB3/suzuki-gixxer-sf-250-side14.webp",
       "name": "SUZUKI Gixxer-SF",
-      "original_price": 400,
+      "original_price": 2800,
+      "sellerName":"Ashraful Alom",
       "location": "khulna,narail",
-      "resell_price": 600,
-      "used": 3,
-      "date": -2007
+      "resell_price": 2000,
+      "used": 3
+      
     },
     {
-      "category_id": 3,
+      "category_id": "3",
       "img": "https://i.ibb.co/qJp79Tf/Gixxer-150-Home-Page-Desktop-1080-X1050-new-min-5f759e7702230.jpg",
       "name": "SUZUKI SF Naked",
-      "original_price": 400,
+      "original_price": 2600,
+      "sellerName":"Soyeb Hasan",
       "location": "khulna,narail",
-      "resell_price": 600,
-      "used": 1,
-      "date": -2007
+      "resell_price": 1800,
+      "used": 1
+      
     }
   ]
