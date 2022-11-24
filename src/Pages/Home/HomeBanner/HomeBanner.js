@@ -1,16 +1,16 @@
 import React from 'react';
-import img1 from '../../../assets/image/img1.jpg'
-import img2 from '../../../assets/image/img2.jpg'
-import img3 from '../../../assets/image/img3.jpg'
-import img4 from '../../../assets/image/img4.jpg'
+import img1 from '../../../assets/bike/bike1.jpg'
+import img2 from '../../../assets/bike/bike2.jpg'
+import img3 from '../../../assets/bike/bike3.jpg'
+import img4 from '../../../assets/bike/bike4.png'
 import img5 from '../../../assets/image/img5.jpg'
 
 const HomeBanner = () => {
     return (
         <div>
-              <div className="carousel w-full">
+              <div className="carousel w-full ">
                   <div id="slide1" className="carousel-item relative w-full">
-                    <img src={img1} className="w-full" />
+                    <img src={img1} className="w-full " />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                       <a href="#slide4" className="btn btn-circle">❮</a> 
                       <a href="#slide2" className="btn btn-circle">❯</a>

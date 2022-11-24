@@ -34,6 +34,7 @@ const Register = () => {
             const user =result.user
             console.log(user);
             handleUpdateProfile(name,photo)
+            form.reset();
 
             const userInfo={
               name:name,
