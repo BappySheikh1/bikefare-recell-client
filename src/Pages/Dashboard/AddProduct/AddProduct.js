@@ -65,7 +65,8 @@ const AddProduct = () => {
         })
     }
     return (
-        <div>
+        <div> 
+          <h2 className="text-4xl text-center my-2 text-bold">Add A Product</h2>
             <div className='my-5 lg:px-20'>
        
        <form onSubmit={handleAddService}>

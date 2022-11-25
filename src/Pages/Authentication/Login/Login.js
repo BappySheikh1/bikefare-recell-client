@@ -24,11 +24,11 @@ const handleSubmitLogin=event=>{
     const form =event.target
     const email=form.email.value
     const password=form.password.value
-    console.log(email,password);
+    // console.log(email,password);
     LoginUser(email,password)
     .then(result =>{
         const user =result.user
-        console.log(user);
+        // console.log(user);
         setLoginUserEmail(email)
         
     })
@@ -77,7 +77,7 @@ const handleUserEmailForget=()=>{
       <div>
         <p className='text-red-700 my-2'>{error}</p>
       </div>
-     <p className='text-center mb-7'>New to Please <Link className='text-red-300' to='/register'> Register</Link></p>   
+     <p className='text-center mb-7'>New Bikefair Please <Link className='text-red-300' to='/register'> Register</Link></p>   
     </div>
   </div>
 </div>

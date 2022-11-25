@@ -7,9 +7,11 @@ import Blogs from "../Pages/Blogs/Blogs";
 import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
+import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import Home from "../Pages/Home/Home";
 import Products from "../Pages/Home/Products/Products";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
+import AdminRoute from "./AdminRoute/AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 
 export const router =createBrowserRouter([
@@ -56,8 +58,12 @@ export const router =createBrowserRouter([
             element: <AddProduct />
         },
         {
+            path:'/dashboard/myProducts',
+            element: <MyProducts />
+        },
+        {
             path:'/dashboard/allUsers',
-            element: <AllUsers />
+            element: <AdminRoute><AllUsers /></AdminRoute> 
         },
 
     ]

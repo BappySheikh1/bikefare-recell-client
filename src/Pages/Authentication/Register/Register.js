@@ -121,7 +121,7 @@ const Register = () => {
 
         <select name='select' className="select mt-3 w-full max-w-xs input input-bordered">
            <option defaultValue='Select your position' disabled >Select your position</option>
-           <option defaultValue='none' >None</option>
+           <option defaultValue='none' disabled >None</option>
            <option defaultValue='Buyer' >Buyer</option>
            <option defaultValue='seller'>Seller</option>
         </select>

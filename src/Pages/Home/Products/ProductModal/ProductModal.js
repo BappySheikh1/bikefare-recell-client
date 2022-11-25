@@ -1,9 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import {AuthContext} from "../../../../contexts/AuthProvider"
 
-const ProductModal = ({product}) => {
-  const [modal,setModal]=useState(null)
+const ProductModal = ({product,setProductModal}) => {
+    const {name,resell_price}=product
+    // console.log(product);
+    
     const {user}=useContext(AuthContext)
     const handleSubmit=(event)=>{
      event.preventDefault();
@@ -36,7 +38,7 @@ const ProductModal = ({product}) => {
         if(data.acknowledged){
           toast.success('That the item is booked')
           form.reset();
-          setModal(null)
+          setProductModal(null)
         }
      })
 
@@ -52,9 +54,9 @@ const ProductModal = ({product}) => {
 
     <input type="text" placeholder="User Email" name='email' defaultValue={user?.email} disabled className="input input-bordered w-full mb-2 rounded text-center" />
 
-    <input type="text" placeholder="Items name" name='productName' defaultValue={product.name} disabled className="input input-bordered w-full mb-2 rounded text-center" />
+    <input type="text" placeholder="Items name" name='productName' defaultValue={name} disabled className="input input-bordered w-full mb-2 rounded text-center" />
 
-    <input type="text" placeholder="price" name='price' disabled defaultValue={product.resell_price} className="input input-bordered w-full mb-2 rounded text-center" />
+    <input type="text" placeholder="price" name='price' disabled defaultValue={resell_price} className="input input-bordered w-full mb-2 rounded text-center" />
 
     <input type="text" placeholder="Phone Number" name='phone' className="input input-bordered text-center w-full mb-2 rounded" />
 
