@@ -18,7 +18,8 @@ const AddProduct = () => {
           return toast.error('please provide a number in salesPrice or purchasePrice or phone field',{autoClose: 800})
         }
         const message =form.message.value;
-       console.log(title,condition,location,purchasePrice,phone,salesPrice,message,image,category_id);
+        const date =new Date()
+      //  console.log(title,condition,location,purchasePrice,phone,salesPrice,message,image,category_id);
        const formData=new FormData()
          formData.append('image',image)
          const uri =`https://api.imgbb.com/1/upload?key=${imageHostKey}`
@@ -28,37 +29,40 @@ const AddProduct = () => {
         })
         .then((res)=>res.json())
         .then(data =>{
-         console.log(data.data.url);
+        //  console.log(data.data.url);
+         if(data?.success){
+
+          const userInfo={
+            category_id: category_id,
+            img: data?.data?.url,
+            name: title,
+            original_price: purchasePrice,
+            location: location,
+            resell_price : salesPrice,
+            used: 3,
+            time: date.toLocaleString(),
+            description: message,
+            condition: condition
+          } 
+
+          fetch('http://localhost:4000/addProduct_Category',{
+            method:"POST",
+            headers:{
+              "content-type" : "application/json"
+            },
+            body: JSON.stringify(userInfo)
+        })
+        .then(res => res.json())
+        .then(data =>{
+          // console.log(data);
+            form.reset();
+            if(data.acknowledged){
+               toast.success('Product added successfully',{autoClose: 500})
+              }
         })
 
-      const userInfo={
-        category_id: category_id,
-        img: formData,
-        name: title,
-        original_price: purchasePrice,
-        "sellerName":"Adnan Emon",
-        location: location,
-        resell_price : salesPrice,
-        used: 3
-      }
-      
-
-    //   fetch('https://service-project-server-bappysheikh1.vercel.app/servicePost',{
-    //     method:"POST",
-    //     headers:{
-    //       "content-type" : "application/json"
-    //     },
-    //     body: JSON.stringify(userInfo)
-    // })
-    // .then(res => res.json())
-    // .then(data =>{
-    //   // console.log(data);
-    //     form.reset();
-    //     if(data.acknowledged){
-    //         return toast.success('service is added successfully',{autoClose: 500})
-    //       }
-    // })
-
+         }
+        })
     }
     return (
         <div>
