@@ -1,13 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import {AuthContext} from '../../../contexts/AuthProvider'
-
+ 
 const MyOrders = () => {
     const {user}=useContext(AuthContext)
     const {data:bookedItems = [],isLoading,refetch}=useQuery({
         queryKey:['bookedItem',user?.email],
         queryFn: async ()=>{
-          const res = await fetch(`http://localhost:4000/bookedItem?email=${user?.email}`)
+          const res = await fetch(`http://localhost:4000/bookedItem?email=${user?.email}`,{
+            headers:{
+              authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+          })
           const data=await res.json()
           return data
         }
@@ -35,7 +39,7 @@ const MyOrders = () => {
     <tbody>
      
       {
-        bookedItems.map((bookedItem ,i)=> 
+        bookedItems?.map((bookedItem ,i)=> 
         <tr key={bookedItem._id}>
         <th>{i + 1}</th>
         <td>

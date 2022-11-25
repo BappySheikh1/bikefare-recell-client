@@ -3,16 +3,21 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/login.png'
 import { AuthContext } from '../../../contexts/AuthProvider';
 import toast  from 'react-hot-toast';
+import useToken from '../../../hooks/useToken/useToken';
 
 const Login = () => {
 const [error,setError]=useState('')
 const [userEmail,setUserEmail]=useState('')
 const {LoginUser,forgetUserPassword}=useContext(AuthContext)
+const [loginUserEmail,setLoginUserEmail]=useState('')
+const [token]=useToken(loginUserEmail)
+const navigate =useNavigate()
+const location=useLocation()
+let from = location.state?.from?.pathname || "/";
 
-const navigate=useNavigate()
-    const location=useLocation()
-    let from = location.state?.from?.pathname || "/";
-
+if(token){
+  navigate(from, { replace: true });
+}
 
 const handleSubmitLogin=event=>{
     event.preventDefault();
@@ -24,10 +29,11 @@ const handleSubmitLogin=event=>{
     .then(result =>{
         const user =result.user
         console.log(user);
-        navigate(from, { replace: true });
+        setLoginUserEmail(email)
+        
     })
 }
-
+ 
 const handleOnBlurEmail=event=>{
   setUserEmail(event.target.value)
 }

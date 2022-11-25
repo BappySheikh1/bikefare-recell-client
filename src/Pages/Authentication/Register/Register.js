@@ -1,12 +1,20 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/login.png'
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useToken from '../../../hooks/useToken/useToken';
 
 const Register = () => {
     const [error,setError]=useState('') 
     const {createUser,updateUserProfile,socialLoginUser}=useContext(AuthContext)
     // const imageHostKey=process.env.REACT_APP_imgbb_key
+    const [createUserEmail,setCreateUserEmail]=useState('')
+    const [token]=useToken(createUserEmail)
+    const navigate =useNavigate();
+
+    if(token){
+      navigate('/')
+    }
 
     const handleSubmitRegister=event=>{
         event.preventDefault();
@@ -35,8 +43,8 @@ const Register = () => {
             console.log(user);
             handleUpdateProfile(name,photo)
             form.reset();
-
-            const userInfo={
+           
+             const userInfo={
               name:name,
               email: email,
               select:select
@@ -50,7 +58,10 @@ const Register = () => {
             })
             .then(res =>res.json())
             .then(data=>{
-              console.log(data);
+              // console.log(data);
+              if(data){
+                setCreateUserEmail(email)
+              }
             })
 
 
