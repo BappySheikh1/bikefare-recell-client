@@ -4,10 +4,13 @@ import Main from "../Layout/Main";
 import Login from "../Pages/Authentication/Login/Login";
 import Register from "../Pages/Authentication/Register/Register";
 import Blogs from "../Pages/Blogs/Blogs";
+import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import Home from "../Pages/Home/Home";
 import Products from "../Pages/Home/Products/Products";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router =createBrowserRouter([
    {
@@ -34,7 +37,7 @@ export const router =createBrowserRouter([
         {
             path:'/product/:category_id',
             loader:({params})=>fetch(`http://localhost:4000/category/${params.category_id}`),
-            element:<Products />
+            element: <PrivateRoute><Products /></PrivateRoute> 
         },
     ]
    },
@@ -42,12 +45,21 @@ export const router =createBrowserRouter([
    {
     path:'/dashboard',
     errorElement: <ErrorPage />,
-    element: <DashboardLayout></DashboardLayout> ,
+    element: <PrivateRoute> <DashboardLayout></DashboardLayout></PrivateRoute> ,
     children:[
         {
             path:'/dashboard',
             element: <MyOrders />
-        }
+        },
+        {
+            path:'/dashboard/addProduct',
+            element: <AddProduct />
+        },
+        {
+            path:'/dashboard/allUsers',
+            element: <AllUsers />
+        },
+
     ]
    }
 ])
