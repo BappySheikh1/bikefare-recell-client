@@ -3,8 +3,8 @@ import React from 'react';
 const Product = ({product,setProductModal}) => {
   
   // console.log(product);
-  const {img,name,original_price,resell_price,used,location}=product
-  // setProductModal(product)
+  const {img,name,original_price,resell_price,used,location,condition,description,time,sellerName}=product
+ 
     return (
         <div className='my-5' >
             <div className="card mx-auto shadow-xl ">
@@ -15,12 +15,20 @@ const Product = ({product,setProductModal}) => {
                   <p className="font-bold text-gray-600">Location: {location}</p>
                    <p className='text-gray-600 font-bold'>used: {used}yr</p>
                   </div>
+                  <div className='flex justify-between'>
+                    <p className='text-gray-600 font-bold'>Posted Time: {time ? time : 'No posted time'}</p>
+                    <p className='text-gray-600 font-bold'>Condition: {condition ? condition : 'excellent'}</p>
+                  </div>
                    <div className='flex justify-between'>
-                    <p className='text-red-600 font-bold'>Orginal Price: ${original_price}</p>
+                    <p className='text-blue-600 font-bold'>Orginal Price: ${original_price}</p>
                     <p className='text-green-500 font-bold'>Selling Price: ${resell_price}</p>
                   </div>
+                  <p className='font-bold text-gray-600'>sellerName: {sellerName}</p>
+                  <div>
+                    {description ? description : 'no description'}
+                  </div>
                   <div className="card-actions justify-end">
-                    <a onClick={()=>setProductModal({resell_price,name})} href="#my-modal-2" className="btn hover:bg-blue-800 bg-blue-700 border-none rounded-xl">Buy Now</a>
+                    <label onClick={()=>setProductModal({resell_price,name})} className="btn hover:bg-blue-800 bg-blue-700 border-none rounded-xl" htmlFor="my-modal-3" >Buy Now</label>
                   </div>
                 </div>
              </div>

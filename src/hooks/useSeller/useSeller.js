@@ -9,10 +9,11 @@ const useSeller = (email) => {
          .then(res => res.json())
          .then(data =>{
             setIsSeller(data.isSeller)
+            setIsSellerLoading(false)
          })
         }
-    },[email])
-    return [isSeller]
+    },[email]) 
+    return [isSeller ,isSellerLoading]
 };
 
 export default useSeller;

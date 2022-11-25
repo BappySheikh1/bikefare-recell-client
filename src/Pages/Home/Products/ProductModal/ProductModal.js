@@ -45,10 +45,10 @@ const ProductModal = ({product,setProductModal}) => {
     }
     return (
         <div>
-          
-
-<div className="modal" id="my-modal-2">
-  <div className="modal-box">
+ <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+<div className="modal">
+  <div className="modal-box relative">
+    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
     <form onSubmit={handleSubmit}>
     <input type="text" placeholder="User Name" name='name' disabled defaultValue={user?.displayName} className="input input-bordered w-full my-2 rounded text-center" />
 
@@ -65,11 +65,18 @@ const ProductModal = ({product,setProductModal}) => {
     <input type="submit" className='btn border-none bg-blue-700 rounded-lg w-full' value='Submit' />
     </form>
 
+  </div>
+</div>         
+ 
+
+{/* <div className="modal" id="my-modal-2">
+  <div className="modal-box">
+    
     <div className="modal-action">
      <a href="#" className="btn">Yay!</a>
     </div>
   </div>
-</div>
+</div> */}
         </div>
     );
 };

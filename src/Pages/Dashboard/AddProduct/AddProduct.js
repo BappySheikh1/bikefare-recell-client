@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import {AuthContext} from '../../../contexts/AuthProvider'
 
 const AddProduct = () => {
+  const {user}=useContext(AuthContext)
+  const navigate =useNavigate()
     const imageHostKey=process.env.REACT_APP_imgbb_key
     const handleAddService=event=>{
         event.preventDefault();
@@ -12,6 +16,7 @@ const AddProduct = () => {
         const purchasePrice =form.purchasePrice.value;
         const phone =form.phone.value;
         const salesPrice =form.salesPrice.value;
+        const SellerName =form.SellerName.value;
         const category_id =form.category_id.value;
         const image =form.image.files[0]
         if(isNaN(salesPrice) || isNaN(phone) || isNaN(purchasePrice) || isNaN(category_id)){
@@ -42,7 +47,8 @@ const AddProduct = () => {
             used: 3,
             time: date.toLocaleString(),
             description: message,
-            condition: condition
+            condition: condition,
+            sellerName:SellerName,
           } 
 
           fetch('http://localhost:4000/addProduct_Category',{
@@ -58,11 +64,12 @@ const AddProduct = () => {
             form.reset();
             if(data.acknowledged){
                toast.success('Product added successfully',{autoClose: 500})
+               navigate('/dashboard/myProducts')
               }
         })
 
          }
-        })
+        }) 
     }
     return (
         <div> 
@@ -104,6 +111,11 @@ const AddProduct = () => {
        <div>
        <label htmlFor="" className='text-lg  font-bold ml-2 '>Category Id</label>
        <input type="text" name='category_id' placeholder="Category Id for product 1 or 2 or 3"  className="input input-bordered w-full "  />
+       </div>
+
+       <div>
+       <label htmlFor="" className='text-lg  font-bold ml-2 '>Seller Name</label>
+       <input type="text" name='SellerName' placeholder="Category Id for product 1 or 2 or 3" defaultValue={user?.displayName} disabled  className="input input-bordered w-full "  />
        </div>
 
        <div>
