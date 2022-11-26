@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import AllSellerDeleteModal from '../DeleteModal/AllSellerDeleteModal';
 
 const AllUsers = () => {
+  const [deleteSeller,setDeleteSeller]=useState(null)
     const {data: Users = [],isLoading,refetch}=useQuery({
         queryKey:['userRole/seller'],
         queryFn:async ()=>{
@@ -16,7 +18,9 @@ const AllUsers = () => {
            <button className="btn btn-square loading"></button>
         </div> 
     }
-
+    const closeModal =()=>{
+      setDeleteSeller(null)
+  }
    const handleMakeAdmin=(_id)=>{
      fetch(`http://localhost:4000/users/admin/${_id}`,{
       method:"PUT",
@@ -32,9 +36,21 @@ const AllUsers = () => {
      })
    }
 
-   const handleDelete=(_id)=>{
-    console.log('delete option',_id);
-    }
+   const handleDelete=(seller)=>{
+    console.log('delete option',seller._id);
+    fetch(`http://localhost:4000/userRole/seller/${seller._id}`,{
+  method:"DELETE"
+})
+.then(res => res.json())
+.then(data => {
+  console.log(data);
+  if(data.deletedCount > 0){
+    toast.success("Deleted Successfully")
+    refetch()
+    setDeleteSeller(null)
+  }
+})
+  }
     
     return (
         <div>
@@ -72,12 +88,26 @@ const AllUsers = () => {
             <td>
               <button className='btn btn-xs rounded-lg'>verify now</button>
             </td>
-            <td><button onClick={()=> handleDelete(user._id)} className='btn btn-xs rounded-lg bg-red-700 border-none'>delete</button></td>
+            <td>
+            <a href="#my-modal-2" onClick={()=> setDeleteSeller(user)} className="btn btn-xs rounded-lg bg-red-700 border-none">delete</a>
+              </td>
           </tr>)
     }
       
     </tbody>
   </table>
+</div>
+<div>
+{
+    deleteSeller && <AllSellerDeleteModal
+    title={`Are you sure you want to delete?`}
+    message={`If you delete ${deleteSeller.name}. It cannot be undone.`}
+    successAction={handleDelete}
+    data={deleteSeller}
+    successButtonName='Delete'
+    closeModal={closeModal}
+    />
+}
 </div>
         </div>
     );

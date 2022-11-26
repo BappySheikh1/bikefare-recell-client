@@ -1,9 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import AllBuyerDeleteModal from '../../DeleteModal/AllBuyerDeleteModal';
 
 const AllBuyer = () => {
-
+    const [deleteBuyer,setDeleteBuyer]=useState(null)
+   
+    
+    const closeModal =()=>{
+      setDeleteBuyer(null)
+  }
     const  {data: Users = [],isLoading,refetch}=useQuery({
         queryKey:["userRole/buyer",],
         queryFn: async()=>{
@@ -32,8 +38,21 @@ const AllBuyer = () => {
         })
       }
    
-const handleDelete=(_id)=>{
-console.log('delete option',_id);
+const handleDelete=(user)=>{
+console.log('delete option',user._id);
+fetch(`http://localhost:4000/userRole/buyer/${user._id}`,{
+  method:"DELETE"
+})
+.then(res => res.json())
+.then(data => {
+  console.log(data);
+  if(data.deletedCount > 0){
+    toast.success("Deleted Successfully")
+    refetch()
+    setDeleteBuyer(null)
+  }
+})
+
 }
 
     return (
@@ -71,12 +90,26 @@ console.log('delete option',_id);
            }
            </td>
             <td><button className='btn btn-xs rounded-lg'>verify now</button></td>
-            <td><button onClick={()=> handleDelete(user._id)} className='btn btn-xs rounded-lg bg-red-700 border-none'>delete</button></td>
+            <td>
+            <a href="#my-modal-2" onClick={()=> setDeleteBuyer(user)} className="btn btn-xs rounded-lg bg-red-700 border-none">delete</a>
+            </td>
           </tr>)
     }
       
     </tbody>
   </table>
+</div>
+<div>
+{
+    deleteBuyer && <AllBuyerDeleteModal
+    title={`Are you sure you want to delete?`}
+    message={`If you delete ${deleteBuyer.name}. It cannot be undone.`}
+    successAction={handleDelete}
+    data={deleteBuyer}
+    successButtonName='Delete'
+    closeModal={closeModal}
+    />
+}
 </div>
         </div>
     );
