@@ -28,6 +28,21 @@ const Product = ({product,refetch}) => {
      })
     }
 
+    const handleAdvertised=(product)=>{
+      fetch(`http://localhost:4000/advertised/${product._id}`,{
+        method:"PUT",
+        headers:{
+          authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
+       }).then(res => res.json()).then(data =>{
+       //  console.log(data);
+        if(data.modifiedCount > 0){
+          toast.success("Make Advertised Successful")
+          refetch()
+        }
+       })
+    }
+
     return (
         <div>
             <div className="card  bg-base-100 shadow-xl mx-auto">
@@ -49,7 +64,8 @@ const Product = ({product,refetch}) => {
                 <p className=''>Posted: {time}</p>
                 <div className="card-actions justify-between mt-8">
                   <a href="#my-modal-2" onClick={()=> setProductDelete(product)} className="btn btn-xs rounded-lg bg-red-700 hover:bg-red-600 border-none">delete</a>
-                  <button className="btn bg-blue-700 hover:bg-blue-600 border-none  rounded btn-xs">advertised</button>
+
+                  <button onClick={()=>handleAdvertised(product)}  className="btn bg-blue-700 hover:bg-blue-600 border-none  rounded btn-xs">advertised</button>
                 </div>
               </div>
             </div>

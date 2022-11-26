@@ -11,7 +11,7 @@ const MyProducts = () => {
         queryFn: async ()=>{ 
             const res = await fetch(`http://localhost:4000/myProduct?displayName=${user?.displayName}`)
             const data = await res.json()
-            return data
+            return data 
         }
     })
     if(isLoading){ 
