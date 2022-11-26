@@ -13,7 +13,7 @@ const SellerRoute = ({children}) => {
         <button className="btn btn-square loading"></button>
     </div>
     }
-  
+   
     if(user && isSeller){
         return children;
     }
