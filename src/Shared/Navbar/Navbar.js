@@ -44,7 +44,7 @@ const handleLogOut=()=>{
         {
             menuItem
         }
-      </ul>
+      </ul> 
     </div>
     <Link to='/' className="btn btn-ghost normal-case text-xl">
       {/* <img src={} className='w-24' alt="" /> */}

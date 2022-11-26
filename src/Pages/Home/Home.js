@@ -1,4 +1,5 @@
 import React from 'react';
+import AdvertisedItems from './AdvertisedItems/AdvertisedItems';
 import HomeBanner from './HomeBanner/HomeBanner';
 import Location from './Location/Location';
 import SecondHandProduct from './SecondHandProduct/SecondHandProduct';
@@ -10,6 +11,7 @@ const Home = () => {
             <HomeBanner />
             <SecondHandProduct />
             <Location />
+            <AdvertisedItems />
             <UserReview />
         </div>
     );
