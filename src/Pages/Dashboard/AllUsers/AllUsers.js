@@ -16,7 +16,7 @@ const AllUsers = () => {
     if(isLoading){
         return <div className='text-center'>
            <button className="btn btn-square loading"></button>
-        </div> 
+        </div>  
     }
     const closeModal =()=>{
       setDeleteSeller(null)
@@ -52,6 +52,21 @@ const AllUsers = () => {
 })
   }
     
+  // const handleMakeVerify=(_id)=>{
+  //   fetch(`http://localhost:4000/users/seller/${_id}`,{
+  //     method:"PUT",
+  //     headers:{
+  //       authorization: `bearer ${localStorage.getItem('accessToken')}`
+  //     }
+  //    }).then(res => res.json()).then(data =>{
+  //     console.log(data);
+  //     if(data.modifiedCount > 0){
+  //       toast.success("Make Admin Successful")
+  //       refetch()
+  //     }
+  //    })
+  // }
+
     return (
         <div>
             <h1 className="text-4xl">This is All Users page {Users.length}</h1>
@@ -87,6 +102,7 @@ const AllUsers = () => {
            </td>
             <td>
               <button className='btn btn-xs rounded-lg'>verify now</button>
+              {/* onClick={()=>handleMakeVerify(user._id)}  */}
             </td>
             <td>
             <a href="#my-modal-2" onClick={()=> setDeleteSeller(user)} className="btn btn-xs rounded-lg bg-red-700 border-none">delete</a>

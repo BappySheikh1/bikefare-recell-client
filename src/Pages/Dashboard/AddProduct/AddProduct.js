@@ -115,7 +115,7 @@ const AddProduct = () => {
 
        <div>
        <label htmlFor="" className='text-lg  font-bold ml-2 '>Seller Name</label>
-       <input type="text" name='SellerName' placeholder="Category Id for product 1 or 2 or 3" defaultValue={user?.displayName} disabled  className="input input-bordered w-full "  />
+       <input type="text" name='SellerName' placeholder="Category Id for product 1 or 2 or 3" defaultValue={user?.displayName}   className="input input-bordered w-full "  />
        </div>
 
        <div>

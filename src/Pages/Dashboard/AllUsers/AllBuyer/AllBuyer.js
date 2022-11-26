@@ -6,7 +6,7 @@ import AllBuyerDeleteModal from '../../DeleteModal/AllBuyerDeleteModal';
 const AllBuyer = () => {
     const [deleteBuyer,setDeleteBuyer]=useState(null)
    
-    
+     
     const closeModal =()=>{
       setDeleteBuyer(null)
   }
@@ -55,6 +55,9 @@ fetch(`http://localhost:4000/userRole/buyer/${user._id}`,{
 
 }
 
+const handleMakeVerify=(_id)=>{
+
+}
     return (
         <div>
             <h2 className='text-3xl'> All Buyer page</h2>
@@ -68,7 +71,6 @@ fetch(`http://localhost:4000/userRole/buyer/${user._id}`,{
         <th>email</th>
         <th>Status</th>
         <th>Admin</th>
-        <th>Verify</th>
         <th>Admin Action</th>
       </tr>
     </thead>
@@ -89,7 +91,6 @@ fetch(`http://localhost:4000/userRole/buyer/${user._id}`,{
               <button className='btn btn-xs bg-cyan-200 hover:bg-cyan-200 border-none rounded-lg'>Admin</button> 
            }
            </td>
-            <td><button className='btn btn-xs rounded-lg'>verify now</button></td>
             <td>
             <a href="#my-modal-2" onClick={()=> setDeleteBuyer(user)} className="btn btn-xs rounded-lg bg-red-700 border-none">delete</a>
             </td>

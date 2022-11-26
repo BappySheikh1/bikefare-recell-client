@@ -5,7 +5,7 @@ const Product = ({product,setProductModal}) => {
   // console.log(product);
   const {img,name,original_price,resell_price,used,location,condition,description,time,sellerName}=product
  
-    return (
+    return ( 
         <div className='my-5' >
             <div className="card mx-auto shadow-xl ">
                <figure><img src={img} className='h-80' alt="bike"/></figure>
