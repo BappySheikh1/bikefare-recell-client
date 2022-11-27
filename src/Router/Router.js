@@ -9,6 +9,7 @@ import AllBuyer from "../Pages/Dashboard/AllUsers/AllBuyer/AllBuyer";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import ReportedItem from "../Pages/Dashboard/AllUsers/ReportedItem/ReportedItem";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
+import Payment from "../Pages/Dashboard/MyOrders/Payment/Payment";
 import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import Home from "../Pages/Home/Home";
 import Products from "../Pages/Home/Products/Products";
@@ -77,6 +78,11 @@ export const router =createBrowserRouter([
           path:"/dashboard/ReportedItems",
           element: <AdminRoute><ReportedItem /></AdminRoute>
         },
+        {
+            path:'/dashboard/payment/:id',
+            loader:({params})=> fetch(`http://localhost:4000/bookedItem/${params.id}`),
+            element: <Payment />
+        }
     ]
    }
 ])
