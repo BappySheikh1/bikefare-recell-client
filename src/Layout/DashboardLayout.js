@@ -27,7 +27,11 @@ const DashboardLayout = () => {
     <ul className="menu p-4 w-80   text-base-content">
       {/* <!-- Sidebar content here --> */}
       
-         <li><Link className='font-semibold' to='/dashboard'>My Orders</Link></li>
+       
+         {
+          isBuyer && 
+         <li><Link className='font-semibold' to='/dashboard/myOrders'>My Orders</Link></li>
+         }
        
        
        {

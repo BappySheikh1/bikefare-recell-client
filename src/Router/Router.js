@@ -17,6 +17,8 @@ import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 import SellerRoute from './SellerRoute/SellerRoute';
+import BuyerRoute from './BuyerRoute/BuyerRoute';
+import Dashboard from '../Pages/Dashboard/Dashboard'
 
 export const router =createBrowserRouter([
    {
@@ -49,13 +51,17 @@ export const router =createBrowserRouter([
    },
 
    {
-    path:'/dashboard',
+    path:'/',
     errorElement: <ErrorPage />,
     element: <PrivateRoute> <DashboardLayout></DashboardLayout></PrivateRoute> ,
     children:[
         {
             path:'/dashboard',
-            element:  <MyOrders /> 
+            element:  <Dashboard /> 
+        },
+        {
+            path:'/dashboard/myOrders',
+            element: <BuyerRoute><MyOrders /></BuyerRoute>  
         },
         {
             path:'/dashboard/addProduct',
@@ -81,7 +87,7 @@ export const router =createBrowserRouter([
         {
             path:'/dashboard/payment/:id',
             loader:({params})=> fetch(`http://localhost:4000/bookedItem/${params.id}`),
-            element: <Payment />
+            element: <BuyerRoute><Payment /></BuyerRoute>
         }
     ]
    }

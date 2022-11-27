@@ -1,7 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import DeleteModalReportedItem from './DeleteModalReportedItem';
 
 const ReportedItem = () => {
+    const [deletingReportedItem,setDeletingReportedItem]=useState(null)
     const {data: reportedItems = [],isLoading,refetch}=useQuery({
         queryKey:["product_report"],
         queryFn: async()=>{
@@ -15,6 +18,24 @@ const ReportedItem = () => {
                  <button className="btn loading">loading</button>
                </div>
     }
+   const closeModal =()=>{
+    setDeletingReportedItem(null)
+   }
+    const handleDeleteReportItem =(report)=>{
+      console.log(`delete reported product ${report._id}`);
+      fetch(`http://localhost:4000/reported/${report._id}`,{
+        method:"DELETE"
+      })
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data);
+        if(data.deletedCount > 0){
+            toast.success("reported product deleted Successfully")
+            refetch()
+        }
+      })
+    }
+
     return (
         <div> 
             <h2 className="text-3xl">Reported page: {reportedItems.length}</h2>
@@ -34,7 +55,7 @@ const ReportedItem = () => {
      
      {
         reportedItems.map((report,i) =>  
-        <tr>
+        <tr key={report._id}>
             <th>{i+1}</th>
             <td>
             <div className="avatar">
@@ -46,13 +67,25 @@ const ReportedItem = () => {
             <td>{report.name}</td>
             <td>${report.resell_price}</td>
             <td>
-                <button className='btn btn-xs bg-red-700 hover:bg-red-800 rounded-xl border-none'>Delete</button>
+                 <a href="#my-modal-2" onClick={()=> setDeletingReportedItem(report)} className="btn btn-xs rounded-lg bg-red-700 border-none">delete</a>
             </td>
           </tr>)
      }
      
     </tbody>
   </table>
+</div>
+<div>
+    {
+        deletingReportedItem && <DeleteModalReportedItem
+        title={`Are you sure you want to delete?`}
+        message={`If you delete ${deletingReportedItem.name}. It cannot be undone.`}
+        successAction={handleDeleteReportItem}
+        data={deletingReportedItem}
+        successButtonName='Delete'
+        closeModal={closeModal}
+        />
+    }
 </div>
         </div>
     );
