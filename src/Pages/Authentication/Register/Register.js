@@ -89,6 +89,21 @@ const Register = () => {
       .then(result =>{
         const user =result.user
         console.log(user);
+        const userInfo ={
+            name: user.displayName,
+            email: user?.email,
+            select:"Buyer"
+        }
+        fetch('http://localhost:4000/users/social',{
+          method: "POST",
+          headers:{
+            "Content-type":"application/json"
+          },
+          body: JSON.stringify(userInfo)
+        }).then(res => res.json()).then(data =>{
+           setCreateUserEmail(user?.email)
+        })
+
       })
       .catch(err =>{
         console.log(err);

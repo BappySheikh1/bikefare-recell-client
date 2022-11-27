@@ -4,9 +4,9 @@ const Review = ({review}) => {
     const {name, img,location,description}=review
     return (
         <div>
-             <div className="card  bg-base-100 shadow-xl">
+             <div className="card  bg-[#14213d] shadow-xl">
               <div className="card-body">
-               <p className='pt-2'>{description}</p>
+               <p className='pt-2 text-white'>{description}</p>
 
                <div className='flex items-center mt-6'>
                <div className="avatar">
@@ -15,7 +15,7 @@ const Review = ({review}) => {
                    </div>
                 </div>
 
-                <div className='pl-5'>
+                <div className='pl-5 text-white'>
                    <h4 className='text-xl font-bold'>{name}</h4> 
                    <p className='text-lg font-semibold'>{location}</p>
                 </div>

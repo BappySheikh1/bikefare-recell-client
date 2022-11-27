@@ -1,44 +1,17 @@
 import React from 'react';
-import img1 from '../../../assets/bike/bike1.jpg'
-import img2 from '../../../assets/bike/bike2.jpg'
-import img3 from '../../../assets/bike/bike3.jpg'
-import img4 from '../../../assets/bike/bike4.png'
-import img5 from '../../../assets/image/img5.jpg'
+import './HomeBanner.css'
+
 
 const HomeBanner = () => {
     return (
-        <div>
-              <div className="carousel w-full ">
-                  <div id="slide1" className="carousel-item relative w-full">
-                    <img src={img1} className="w-full " />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                      <a href="#slide4" className="btn btn-circle">❮</a> 
-                      <a href="#slide2" className="btn btn-circle">❯</a>
-                    </div>
-                  </div> 
-                  <div id="slide2" className="carousel-item relative w-full">
-                    <img src={img2} className="w-full" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                      <a href="#slide1" className="btn btn-circle">❮</a> 
-                      <a href="#slide3" className="btn btn-circle">❯</a>
-                    </div>
-                  </div> 
-                  <div id="slide3" className="carousel-item relative w-full">
-                    <img src={img3} className="w-full" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                      <a href="#slide2" className="btn btn-circle">❮</a> 
-                      <a href="#slide4" className="btn btn-circle">❯</a>
-                    </div>
-                  </div> 
-                  <div id="slide4" className="carousel-item relative w-full">
-                    <img src={img4} className="w-full" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                      <a href="#slide3" className="btn btn-circle">❮</a> 
-                      <a href="#slide1" className="btn btn-circle">❯</a>
-                    </div>
-                  </div>
-                </div>
-        </div>
+        <section className='banner-container showcase flex items-center  justify-center text-white'>
+             <div className='overlay'>
+             <h1 className='text-4xl mt-48  font-bold'>Resell Market Place</h1>
+              <p className=' font-semibold'>           
+            This is an old bike selling and buying website, <br /> you can sell your old bike here,  and if you want <br /> to buy, you can buy a good quality bike at a low price.
+                  </p>
+             </div>
+        </section>
     );
 };
 

@@ -7,23 +7,23 @@ const Location = () => {
     return (
         <div className='my-10'>
             <div className='grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-5  mt-10 text-white'>
-           <div className="card p-6 md:card-side bg-base-100 bg-gradient-to-r from-primary to-secondary shadow-xl">
+           <div className="card p-6 md:card-side  bg-[#001d3d] shadow-xl">
               <figure><img src={watch} alt="Movie"/></figure>
                <div className="card-body">
-                 <h2 className="card-title">Opening Hours</h2>
-                 <p>Open 9.00 am to 5.00 pm everyday</p>
+                 <h2 className="card-title">24 Hours Service</h2>
+                 <p>Open 12.00 am to 12.00 pm everyday</p>
              </div>
            </div>
 
-            <div className="card p-6 md:card-side bg-[#3A4256] shadow-xl">
+            <div className="card p-6 md:card-side bg-[#001d3d] shadow-xl">
             <figure><img src={location} alt="Movie"/></figure>
             <div className="card-body">
-             <h2 className="card-title">Visit our location</h2>
-              <p>Brooklyn, NY 10036, United States.</p>
+             <h2 className="card-title"> Our location</h2>
+              <p>Khulna,Narail, Bangladesh.</p>
            </div>
             </div>
 
-            <div className="card p-6 md:card-side bg-base-100 bg-gradient-to-r from-primary to-secondary shadow-xl">
+            <div className="card p-6 md:card-side bg-[#001d3d]  shadow-xl">
              <figure><img src={call} alt="Movie"/></figure>
              <div className="card-body">
              <h2 className="card-title">Contact us now!</h2>

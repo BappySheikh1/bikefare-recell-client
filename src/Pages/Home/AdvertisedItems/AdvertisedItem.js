@@ -4,9 +4,9 @@ const AdvertisedItem = ({advItem}) => {
     const {img,name,resell_price}=advItem
     return (
         <div>
-            <div className="card mx-auto bg-base-100 shadow-xl rounded-xl">
-              <figure><img src={img} style={{height:"200px"}} alt="Shoes" /></figure>
-              <div className="card-body">
+            <div className="card mx-auto bg-[#10002b] shadow-xl rounded-xl">
+              <figure className='pt-3'><img src={img} style={{height:"200px"}} alt="Shoes" /></figure>
+              <div className="card-body text-white">
                 <h2 className="card-title">
                   {name}
                   <div className="badge badge-secondary">NEW</div>

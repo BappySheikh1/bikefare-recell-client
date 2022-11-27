@@ -11,21 +11,21 @@ const UserReview = () => {
             img:people1,
             name:"Steve Herry",
             location:"California",
-            description: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content" ,
+            description: "This page is very good man's product sale, I have benefited from this product, you can also take it" ,
         },
         {
             id:2,
             img:people2,
             name:"Neymar Jr",
             location:"Brazil",
-            description: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content" ,
+            description: "This page is very good man's product sale, I have benefited from this product, you can also take it" ,
         },
         {
             id:3,
             img:people3,
             name:"Alison Baker",
             location:"California",
-            description: "It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content" ,
+            description: "This page is very good man's product sale, I have benefited from this product, you can also take it" ,
         },
     ]
     return (
