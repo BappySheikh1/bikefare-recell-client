@@ -1,9 +1,27 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const Product = ({product,setProductModal}) => {
   
   // console.log(product);
   const {img,name,original_price,resell_price,used,location,condition,description,time,sellerName}=product
+
+  const handleReportProduct =(product)=>{
+  fetch(`http://localhost:4000/reported/${product._id}`,{
+    method:"PUT",
+    headers:{
+      authorization: `bearer ${localStorage.getItem('accessToken')}`
+    }
+  })
+  .then(res=>res.json()).then(data=>{
+   console.log(data);
+   if(data.modifiedCount > 0){
+    toast.success("reported successfully")
+   }
+  })
+
+  }
+
  
     return ( 
         <div className='my-5' >
@@ -22,12 +40,13 @@ const Product = ({product,setProductModal}) => {
                    <div className='flex justify-between'>
                     <p className='text-blue-600 font-bold'>Orginal Price: ${original_price}</p>
                     <p className='text-green-500 font-bold'>Selling Price: ${resell_price}</p>
-                  </div>
+                  </div> 
                   <p className='font-bold text-gray-600'>sellerName: {sellerName}</p>
                   <div>
                     {description ? description : 'no description'}
                   </div>
-                  <div className="card-actions justify-end">
+                  <div className="card-actions flex items-center justify-between">
+                    <button onClick={()=>handleReportProduct(product)} className='btn btn-xs bg-blue-700 hover:bg-blue-700 border-none rounded-xl'>Report This Product</button>
                     <label onClick={()=>setProductModal({resell_price,name})} className="btn hover:bg-blue-800 bg-blue-700 border-none rounded-xl" htmlFor="my-modal-3" >Buy Now</label>
                   </div>
                 </div>

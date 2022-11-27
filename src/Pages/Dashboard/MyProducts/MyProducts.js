@@ -12,7 +12,7 @@ const MyProducts = () => {
             const res = await fetch(`http://localhost:4000/myProduct?displayName=${user?.displayName}`)
             const data = await res.json()
             return data 
-        }
+        } 
     })
     if(isLoading){ 
         return <div className='text-center my-9'>

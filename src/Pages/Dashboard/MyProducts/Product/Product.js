@@ -26,7 +26,7 @@ const Product = ({product,refetch}) => {
         refetch()
       }
      })
-    }
+    } 
 
     const handleAdvertised=(product)=>{
       fetch(`http://localhost:4000/advertised/${product._id}`,{
@@ -57,15 +57,17 @@ const Product = ({product,refetch}) => {
                 </div>
                 <div className='flex justify-between'>
                 <p className='font-bold'>Seller Name: {sellerName}</p>
-                 <button className='btn btn-xs bg-green-700 hover:bg-green-600 border-none rounded-lg'>
+                
+                  <button className='btn btn-xs bg-green-700 hover:bg-green-600 border-none rounded-lg'>
                  available 
                  </button>
+               
                 </div>
                 <p className=''>Posted: {time}</p>
                 <div className="card-actions justify-between mt-8">
                   <a href="#my-modal-2" onClick={()=> setProductDelete(product)} className="btn btn-xs rounded-lg bg-red-700 hover:bg-red-600 border-none">delete</a>
 
-                  <button onClick={()=>handleAdvertised(product)}  className="btn bg-blue-700 hover:bg-blue-600 border-none  rounded btn-xs">advertised</button>
+                  <button onClick={()=>handleAdvertised(product)}  className="btn bg-blue-700 hover:bg-blue-600 border-none  rounded btn-xs">advertise</button>
                 </div>
               </div>
             </div>

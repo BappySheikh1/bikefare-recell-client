@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import AllSellerDeleteModal from '../DeleteModal/AllSellerDeleteModal';
-
+ 
 const AllUsers = () => {
   const [deleteSeller,setDeleteSeller]=useState(null)
     const {data: Users = [],isLoading,refetch}=useQuery({
