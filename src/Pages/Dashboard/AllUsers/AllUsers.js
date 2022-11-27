@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import AllSellerDeleteModal from '../DeleteModal/AllSellerDeleteModal';
  
@@ -52,24 +52,25 @@ const AllUsers = () => {
 })
   }
     
-  // const handleMakeVerify=(_id)=>{
-  //   fetch(`http://localhost:4000/users/seller/${_id}`,{
-  //     method:"PUT",
-  //     headers:{
-  //       authorization: `bearer ${localStorage.getItem('accessToken')}`
-  //     }
-  //    }).then(res => res.json()).then(data =>{
-  //     console.log(data);
-  //     if(data.modifiedCount > 0){
-  //       toast.success("Make Admin Successful")
-  //       refetch()
-  //     }
-  //    })
-  // }
+  const handleMakeVerify=(user)=>{
+    // console.log(user?.email);
+    fetch(`http://localhost:4000/users/seller/${user?.name}`,{
+      method:"PUT",
+      headers:{
+        authorization: `bearer ${localStorage.getItem('accessToken')}`
+      }
+     }).then(res => res.json()).then(data =>{
+      console.log(data);
+      if(data.modifiedCount > 0){
+        toast.success("Make Verify Successful")
+        refetch()
+      }
+     })
+  }
 
     return (
         <div>
-            <h1 className="text-4xl">This is All Users page {Users.length}</h1>
+            <h1 className="text-4xl mb-4">This is All Seller page {Users.length}</h1>
             <div className="overflow-x-auto">
   <table className="table w-full">
     
@@ -101,8 +102,8 @@ const AllUsers = () => {
             }
            </td>
             <td>
-              <button className='btn btn-xs rounded-lg'>verify now</button>
-              {/* onClick={()=>handleMakeVerify(user._id)}  */}
+                <button onClick={()=>handleMakeVerify(user)}  className='btn btn-xs rounded-lg'>verify now</button>
+                
             </td>
             <td>
             <a href="#my-modal-2" onClick={()=> setDeleteSeller(user)} className="btn btn-xs rounded-lg bg-red-700 border-none">delete</a>

@@ -1,10 +1,11 @@
 import React from 'react';
 import toast from 'react-hot-toast';
+import { GoVerified } from 'react-icons/go';
 
 const Product = ({product,setProductModal}) => {
   
   // console.log(product);
-  const {img,name,original_price,resell_price,used,location,condition,description,time,sellerName}=product
+  const {img,name,original_price,resell_price,used,location,condition,description,time,sellerName,user_verify}=product
 
   const handleReportProduct =(product)=>{
   fetch(`http://localhost:4000/reported/${product._id}`,{
@@ -41,7 +42,12 @@ const Product = ({product,setProductModal}) => {
                     <p className='text-blue-600 font-bold'>Orginal Price: ${original_price}</p>
                     <p className='text-green-500 font-bold'>Selling Price: ${resell_price}</p>
                   </div> 
-                  <p className='font-bold text-gray-600'>sellerName: {sellerName}</p>
+                  {
+                    user_verify ?
+                    <p className='font-bold text-gray-400 flex items-center'>sellerName: <GoVerified className='text-blue-700 ml-2 mr-1'/>  {sellerName } </p> 
+                    :
+                    <p className='font-bold text-gray-400'>sellerName: {sellerName}</p>
+                  }
                   <div>
                     {description ? description : 'no description'}
                   </div>
