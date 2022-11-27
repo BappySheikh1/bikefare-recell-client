@@ -49,7 +49,7 @@ const Register = () => {
               email: email,
               select:select
             }
-            fetch('http://localhost:4000/users',{
+            fetch('https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/users',{
               method: "POST",
               headers:{
                 "Content-type":"application/json"
@@ -95,7 +95,7 @@ const Register = () => {
         //     select:"Buyer"
         // }
 
-        // fetch('http://localhost:4000/users/social',{
+        // fetch('https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/users/social',{
         //   method: "POST",
         //   headers:{
         //     "Content-type":"application/json"

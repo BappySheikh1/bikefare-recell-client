@@ -25,7 +25,7 @@ const ProductModal = ({product,setProductModal}) => {
         location:location,
      }
     //  console.log(bookedItem);
-    fetch('http://localhost:4000/bookedItem',{
+    fetch('https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/bookedItem',{
         method:"POST",
         headers:{
           "Content-type": "application/json"

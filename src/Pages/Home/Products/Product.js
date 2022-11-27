@@ -8,7 +8,7 @@ const Product = ({product,setProductModal}) => {
   const {img,name,original_price,resell_price,used,location,condition,description,time,sellerName,user_verify}=product
 
   const handleReportProduct =(product)=>{
-  fetch(`http://localhost:4000/reported/${product._id}`,{
+  fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/reported/${product._id}`,{
     method:"PUT",
     headers:{
       authorization: `bearer ${localStorage.getItem('accessToken')}`

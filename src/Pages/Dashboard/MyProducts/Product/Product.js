@@ -12,7 +12,7 @@ const Product = ({product,refetch}) => {
     }
    const handleProductDelete=(product)=>{
     // console.log("deleted product",product._id);
-     fetch(`http://localhost:4000/myProduct/${product._id}`,{
+     fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/myProduct/${product._id}`,{
       method:"DELETE",
       headers:{
         // authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -29,7 +29,7 @@ const Product = ({product,refetch}) => {
     } 
 
     const handleAdvertised=(product)=>{
-      fetch(`http://localhost:4000/advertised/${product._id}`,{
+      fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/advertised/${product._id}`,{
         method:"PUT",
         headers:{
           authorization: `bearer ${localStorage.getItem('accessToken')}`

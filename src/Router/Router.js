@@ -44,7 +44,7 @@ export const router =createBrowserRouter([
         },
         {
             path:'/product/:category_id',
-            loader:({params})=>fetch(`http://localhost:4000/category/${params.category_id}`),
+            loader:({params})=>fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/category/${params.category_id}`),
             element: <PrivateRoute><Products /></PrivateRoute> 
         },
     ]
@@ -86,7 +86,7 @@ export const router =createBrowserRouter([
         },
         {
             path:'/dashboard/payment/:id',
-            loader:({params})=> fetch(`http://localhost:4000/bookedItem/${params.id}`),
+            loader:({params})=> fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/bookedItem/${params.id}`),
             element: <BuyerRoute><Payment /></BuyerRoute>
         }
     ]

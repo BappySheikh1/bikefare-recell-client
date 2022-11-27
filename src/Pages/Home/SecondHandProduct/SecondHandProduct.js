@@ -6,7 +6,7 @@ const SecondHandProduct = () => {
     const {data:products =[],isLoading} = useQuery({ 
         queryKey: ['category'], 
         queryFn: async ()=>{
-           const res=await fetch('http://localhost:4000/category')
+           const res=await fetch('https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/category')
            const data =await res.json()
            return data
         }

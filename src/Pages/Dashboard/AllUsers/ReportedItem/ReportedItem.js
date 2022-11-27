@@ -5,10 +5,13 @@ import DeleteModalReportedItem from './DeleteModalReportedItem';
 
 const ReportedItem = () => {
     const [deletingReportedItem,setDeletingReportedItem]=useState(null)
+    const closeModal =()=>{
+      setDeletingReportedItem(null)
+     }
     const {data: reportedItems = [],isLoading,refetch}=useQuery({
         queryKey:["product_report"],
         queryFn: async()=>{
-         const res = await fetch(`http://localhost:4000/product_report`)
+         const res = await fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/product_report`)
          const data =await res.json()
          return data
         }
@@ -18,12 +21,10 @@ const ReportedItem = () => {
                  <button className="btn loading">loading</button>
                </div>
     }
-   const closeModal =()=>{
-    setDeletingReportedItem(null)
-   }
+  
     const handleDeleteReportItem =(report)=>{
       console.log(`delete reported product ${report._id}`);
-      fetch(`http://localhost:4000/reported/${report._id}`,{
+      fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/reported/${report._id}`,{
         method:"DELETE"
       })
       .then(res => res.json())
@@ -75,7 +76,7 @@ const ReportedItem = () => {
     </tbody>
   </table>
 </div>
-<div>
+<div> 
     {
         deletingReportedItem && <DeleteModalReportedItem
         title={`Are you sure you want to delete?`}

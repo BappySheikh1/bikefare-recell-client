@@ -51,7 +51,7 @@ const AddProduct = () => {
             sellerName:SellerName,
           } 
 
-          fetch('http://localhost:4000/addProduct_Category',{
+          fetch('https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/addProduct_Category',{
             method:"POST",
             headers:{
               "content-type" : "application/json"

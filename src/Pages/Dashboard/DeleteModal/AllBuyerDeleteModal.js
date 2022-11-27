@@ -14,7 +14,7 @@ const AllBuyerDeleteModal = ({title,message,successAction,data,successButtonName
                </div>
              </div>
            </div>
-        </div>
+        </div> 
     );
 };
 

@@ -12,7 +12,7 @@ const CheckOutForm = ({bookedItem}) => {
     const {price,email,name,_id}=bookedItem
     // console.log(bookedItem);
     useEffect(()=>{
-        fetch("http://localhost:4000/create-payment-intent",{
+        fetch("https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/create-payment-intent",{
             method:"POST",
             headers:{
                 "Content-type":"application/json",
@@ -75,7 +75,7 @@ const CheckOutForm = ({bookedItem}) => {
            bookedItemId: _id
         }
         // store payment info
-       fetch('http://localhost:4000/payments',{
+       fetch('https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/payments',{
         method:"POST",
         headers:{
           "Content-type":"application/json",

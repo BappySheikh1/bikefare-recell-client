@@ -9,7 +9,7 @@ const MyProducts = () => {
     const {data: MyProducts = [],isLoading,refetch}=useQuery({
         queryKey:["myProduct"],
         queryFn: async ()=>{ 
-            const res = await fetch(`http://localhost:4000/myProduct?displayName=${user?.displayName}`)
+            const res = await fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/myProduct?displayName=${user?.displayName}`)
             const data = await res.json()
             return data 
         } 

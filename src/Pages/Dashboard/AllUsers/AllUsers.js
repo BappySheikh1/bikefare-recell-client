@@ -8,7 +8,7 @@ const AllUsers = () => {
     const {data: Users = [],isLoading,refetch}=useQuery({
         queryKey:['userRole/seller'],
         queryFn:async ()=>{
-        const res = await fetch(`http://localhost:4000/userRole/seller`)
+        const res = await fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/userRole/seller`)
         const data = await res.json()
         return data
         }
@@ -22,7 +22,7 @@ const AllUsers = () => {
       setDeleteSeller(null)
   }
    const handleMakeAdmin=(_id)=>{
-     fetch(`http://localhost:4000/users/admin/${_id}`,{
+     fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/users/admin/${_id}`,{
       method:"PUT",
       headers:{
         authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -38,7 +38,7 @@ const AllUsers = () => {
 
    const handleDelete=(seller)=>{
     console.log('delete option',seller._id);
-    fetch(`http://localhost:4000/userRole/seller/${seller._id}`,{
+    fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/userRole/seller/${seller._id}`,{
   method:"DELETE"
 })
 .then(res => res.json())
@@ -54,7 +54,7 @@ const AllUsers = () => {
     
   const handleMakeVerify=(user)=>{
     // console.log(user?.email);
-    fetch(`http://localhost:4000/users/seller/${user?.name}`,{
+    fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/users/seller/${user?.name}`,{
       method:"PUT",
       headers:{
         authorization: `bearer ${localStorage.getItem('accessToken')}`
