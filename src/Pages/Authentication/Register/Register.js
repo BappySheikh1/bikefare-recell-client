@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/login.png'
 import { AuthContext } from '../../../contexts/AuthProvider';
@@ -36,6 +37,21 @@ const Register = () => {
       //  .then(data =>{
       //   console.log(data.data.url);
       //  })
+        //  password validation start
+        if (!/(?=.{8,})/.test(password)) {
+          setError("password must be 8 character");
+          return;
+        }
+        if (!/(?=.*[a-zA-Z])/.test(password)) {
+          setError("password should have Upper letter!!");
+          return;
+        }
+        if (!/(?=.*[!#@$%&? "])/.test(password)) {
+          setError("password should have special character!!");
+          return;
+        }
+        setError('')
+      // password validation end
 
         createUser(email,password)
         .then(result =>{
@@ -43,7 +59,7 @@ const Register = () => {
             console.log(user);
             handleUpdateProfile(name,photo)
             form.reset();
-           
+             toast.success('Successfully Sign In')
              const userInfo={
               name:name,
               email: email,
@@ -65,7 +81,7 @@ const Register = () => {
             })
 
 
-        }) 
+        })  
         .catch(err=>{
           setError(err.message)
         })
@@ -81,6 +97,7 @@ const Register = () => {
        })
        .catch(err =>{
         console.log(err);
+        setError(err.message)
        })
     }
 
@@ -109,6 +126,7 @@ const Register = () => {
       })
       .catch(err =>{
         console.log(err);
+        setError(err.message)
       })
     }
     return (
@@ -159,7 +177,12 @@ const Register = () => {
             <Link className="label-text-alt link link-hover">Forgot password?</Link>
           </label>
         </div>
-        <p className='text-red-700 my-2'>{error}</p>
+      <>
+        {
+          error &&
+          <p className='text-red-700 my-2'>{error}</p>
+        }
+      </>
         <div className="form-control mt-6">
           <button className="btn btn-primary bg-blue-700 hover:bg-blue-600 border-none rounded">Login</button>
         </div>

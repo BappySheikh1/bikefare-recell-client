@@ -18,7 +18,7 @@ let from = location.state?.from?.pathname || "/";
 if(token){
   navigate(from, { replace: true });
 }
-
+ 
 const handleSubmitLogin=event=>{
     event.preventDefault();
     const form =event.target
@@ -30,7 +30,10 @@ const handleSubmitLogin=event=>{
         const user =result.user
         // console.log(user);
         setLoginUserEmail(email)
-        
+        toast.success('Successfully Log In')
+    })
+    .catch(err =>{
+      setError(err.message)
     })
 }
  
@@ -69,14 +72,18 @@ const handleUserEmailForget=()=>{
             <Link onClick={handleUserEmailForget}  className="label-text-alt link link-hover">Forgot password?</Link>
           </label>
         </div>
-
+        <>
+          {
+            error &&
+            <p className='text-red-700 my-2 text-center'>{error}</p>
+          }
+         </>
         <div className="form-control mt-6">
           <button className="btn btn-primary bg-blue-700 hover:bg-blue-600 border-none rounded">Login</button>
         </div>
+        
       </form>
-      <div>
-        <p className='text-red-700 my-2'>{error}</p>
-      </div>
+      
      <p className='text-center mb-7'>New Bikefair Please <Link className='text-red-300' to='/register'> Register</Link></p>   
     </div>
   </div>
