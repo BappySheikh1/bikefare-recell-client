@@ -45,7 +45,7 @@ export const router =createBrowserRouter([
         {
             path:'/product/:category_id',
             loader:({params})=>fetch(`https://assignment12-server-er299s0ta-bappysheikh1.vercel.app/category/${params.category_id}`),
-            element: <PrivateRoute><Products /></PrivateRoute> 
+            element: <Products />
         },
     ]
    },
