@@ -4,6 +4,7 @@ import HomeBanner from './HomeBanner/HomeBanner';
 import Location from './Location/Location';
 import SecondHandProduct from './SecondHandProduct/SecondHandProduct';
 import UserReview from './UserReview/UserReview'
+import AboutUs from './About/AboutUs';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <SecondHandProduct />
             <Location />
             <AdvertisedItems />
+            <AboutUs />
             <UserReview />
         </div>
     );
