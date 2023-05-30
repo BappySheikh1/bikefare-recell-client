@@ -18,7 +18,8 @@ const AdvertisedItems = () => {
     }
     return (
         <div>
-            <h3 className='text-4xl font-bold'>Advertised Items : {AdvItems.length}</h3>
+		<h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl uppercase">Advertised Items: {AdvItems.length}
+</h2>
           {
             AdvItems.length > 0 &&
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-5'>

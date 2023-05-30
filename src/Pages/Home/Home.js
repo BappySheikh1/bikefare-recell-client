@@ -5,15 +5,17 @@ import Location from './Location/Location';
 import SecondHandProduct from './SecondHandProduct/SecondHandProduct';
 import UserReview from './UserReview/UserReview'
 import AboutUs from './About/AboutUs';
+import Galley from './Gallery/Galley';
 
 const Home = () => {
     return (
         <div>
             <HomeBanner />
             <SecondHandProduct />
-            <Location />
-            <AdvertisedItems />
             <AboutUs />
+            <AdvertisedItems />
+            <Location />
+            <Galley />
             <UserReview />
         </div>
     );

@@ -20,7 +20,8 @@ const SecondHandProduct = () => {
     return (
         <div className='my-28'>
             <div className='mb-7'>
-                <h3 className='text-4xl font-semibold'>This Our selling products</h3>
+		<h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl uppercase">This Our selling products
+</h2>
             </div>
 
              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
