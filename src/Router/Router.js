@@ -19,6 +19,8 @@ import PrivateRoute from "./PrivateRoute";
 import SellerRoute from './SellerRoute/SellerRoute';
 import BuyerRoute from './BuyerRoute/BuyerRoute';
 import Dashboard from '../Pages/Dashboard/Dashboard'
+import Faq from "../Pages/Faq/Faq";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
 export const router =createBrowserRouter([
    {
@@ -41,6 +43,14 @@ export const router =createBrowserRouter([
         {
             path:'/blogs',
             element:<Blogs />
+        },
+        {
+            path:'/faq',
+            element:<Faq />
+        },
+        {
+            path:'/contactUs',
+            element:<ContactUs />
         },
         {
             path:'/product/:category_id',

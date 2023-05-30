@@ -30,8 +30,10 @@ const handleLogOut=()=>{
           <>
           <li><Link to='/login'>Log in</Link></li>
           </>
+          
         }
-        
+        <li><Link to='/faq'>FAQ</Link></li>
+        <li><Link to='/contactUs'>Contact Us</Link></li>
     </React.Fragment>
     return (
         <div>
