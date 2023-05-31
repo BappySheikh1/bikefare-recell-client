@@ -14,8 +14,8 @@ const Home = () => {
             <SecondHandProduct />
             <AboutUs />
             <AdvertisedItems />
-            <Location />
             <Galley />
+            <Location />
             <UserReview />
         </div>
     );
