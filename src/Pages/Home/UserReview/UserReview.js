@@ -1,39 +1,120 @@
 import React from 'react';
-import people1 from '../../../assets/Avatar/icon1 (1).jpg'
-import people2 from '../../../assets/Avatar/icon1 (2).jpg'
-import people3 from '../../../assets/Avatar/icon1 (3).jpg'
-import Review from './Review';
+import { Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const UserReview = () => {
-    const Reviews=[
-        {
-            id:1,
-            img:people1,
-            name:"Steve Herry",
-            location:"California",
-            description: "This page is very good man's product sale, I have benefited from this product, you can also take it" ,
-        },
-        {
-            id:2,
-            img:people2,
-            name:"Neymar Jr",
-            location:"Brazil",
-            description: "This page is very good man's product sale, I have benefited from this product, you can also take it" ,
-        },
-        {
-            id:3,
-            img:people3,
-            name:"Alison Baker",
-            location:"California",
-            description: "This page is very good man's product sale, I have benefited from this product, you can also take it" ,
-        },
-    ]
+    
     return (
-        <div className='my-20 gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
-            {
-                Reviews.map(review => <Review key={review.id} review={review}/>)
-            }
-        </div>
+      <div
+        style={{
+          backgroundImage:
+            'url("https://images.unsplash.com/photo-1622185135505-2d795003994a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+        className="lg:h-[700px] w-full text-white p-10 "
+      >
+        <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">
+          TESTIMONIALS
+        </p>
+        <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">
+          CLIENTS FEEDBACKS
+        </h2>
+
+        <Swiper
+          loop={true}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <div
+              id="item1"
+              className="flex flex-col w-full p-10 lg:p-20 text-center"
+            >
+              <p className="text-white text-center font-semibold mt-4">
+                Vintage Bikes Marketplace is a vintage bike enthusiast's dream!
+                The selection is incredible, the interface is user-friendly, and
+                the attention to detail is commendable. Safety measures provide
+                peace of mind. Highly recommended for anyone seeking their
+                perfect vintage ride!
+              </p>
+
+              <div className=" mt-4">
+                <img
+                  src="https://demo.voidcoders.com/htmldemo/potoliaV2/main-files/assets/img/avatar/t-avatar-1.jpg"
+                  className="rounded-xl mx-auto"
+                  alt=""
+                />
+                <div className="ml-3 text-gray-300">
+                  <h5 className="text-xl font-semibold">Olivia Martin</h5>
+                  <p className="font-semibold">Guest review</p>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          {/* 2 */}
+          <SwiperSlide>
+            <div
+              id="item1"
+              className="flex flex-col w-full p-10 lg:p-20 text-center"
+            >
+              <p className="text-gray-300 text-center font-semibold mt-4">
+                Vintage Bikes Marketplace is a vintage bike lover's paradise!
+                The selection is fantastic, and the user-friendly interface
+                makes browsing a breeze. The platform's safety measures inspire
+                confidence, and I highly recommend it to anyone in search of
+                their dream vintage bike.
+              </p>
+
+              <div className=" mt-4">
+                <img
+                  src="https://demo.voidcoders.com/htmldemo/potoliaV2/main-files/assets/img/avatar/t-avatar-2.jpg"
+                  className="rounded-xl mx-auto"
+                  alt=""
+                />
+                <div className="ml-3 text-gray-300">
+                  <h5 className="text-xl font-semibold">Olivia Martin</h5>
+                  <p className="font-semibold">Guest review</p>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          {/* 3 */}
+          <SwiperSlide>
+            <div
+              id="item1"
+              className="flex flex-col w-full p-10 lg:p-20 text-center"
+            >
+              <p className="text-gray-300 text-center font-semibold mt-4">
+                Vintage Bikes Marketplace is a vintage bike lover's paradise!
+                The selection is fantastic, and the user-friendly interface
+                makes browsing a breeze. The platform's safety measures inspire
+                confidence, and I highly recommend it to anyone in search of
+                their dream vintage bike.
+              </p>
+
+              <div className=" mt-4">
+                <img
+                  src="https://demo.voidcoders.com/htmldemo/potoliaV2/main-files/assets/img/avatar/t-avatar-3.jpg"
+                  className="rounded-xl mx-auto"
+                  alt=""
+                />
+                <div className="ml-3 text-gray-300">
+                  <h5 className="text-xl font-semibold">Olivia Martin</h5>
+                  <p className="font-semibold">Guest review</p>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
     );
 };
 
