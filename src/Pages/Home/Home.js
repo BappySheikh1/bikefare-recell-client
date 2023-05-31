@@ -16,11 +16,11 @@ const Home = () => {
       <SecondHandProduct />
       <AboutUs />
       <AdvertisedItems />
+      <Location />
       <Galley />
       <Testimonial />
       <WhyChooseUs />
       <UserReview />
-      <Location />
     </div>
   );
 };
