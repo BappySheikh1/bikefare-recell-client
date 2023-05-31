@@ -1,24 +1,28 @@
-import React from 'react';
-import AdvertisedItems from './AdvertisedItems/AdvertisedItems';
-import HomeBanner from './HomeBanner/HomeBanner';
-import Location from './Location/Location';
-import SecondHandProduct from './SecondHandProduct/SecondHandProduct';
-import UserReview from './UserReview/UserReview'
-import AboutUs from './About/AboutUs';
-import Galley from './Gallery/Galley';
+import React from "react";
+import AdvertisedItems from "./AdvertisedItems/AdvertisedItems";
+import HomeBanner from "./HomeBanner/HomeBanner";
+import Location from "./Location/Location";
+import SecondHandProduct from "./SecondHandProduct/SecondHandProduct";
+import UserReview from "./UserReview/UserReview";
+import AboutUs from "./About/AboutUs";
+import Galley from "./Gallery/Galley";
+import WhyChooseUs from "./WhyChooseUs/WhyChooseUs";
+import Testimonial from "./Testimonial/Testimonial";
 
 const Home = () => {
-    return (
-        <div>
-            <HomeBanner />
-            <SecondHandProduct />
-            <AboutUs />
-            <AdvertisedItems />
-            <Galley />
-            <Location />
-            <UserReview />
-        </div>
-    );
+  return (
+    <div>
+      <HomeBanner />
+      <SecondHandProduct />
+      <AboutUs />
+      <AdvertisedItems />
+      <Galley />
+      <WhyChooseUs />
+      <Testimonial />
+      <UserReview />
+      <Location />
+    </div>
+  );
 };
 
 export default Home;

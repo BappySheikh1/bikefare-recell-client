@@ -9,7 +9,7 @@ const Galley = () => {
         <h2 className="mb- text-4xl font-bold leading-none text-center sm:text-5xl">
           OUR GALLERY
         </h2>
-        <section data-aos="zoom-out" className="py-6 ">
+        <section data-aos-duration="1500" data-aos="zoom-out" className="py-6 ">
           <div className="container flex flex-col justify-center p-4 mx-auto">
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 sm:grid-cols-2">
               <img

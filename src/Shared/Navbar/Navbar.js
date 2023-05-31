@@ -17,24 +17,40 @@ const handleLogOut=()=>{
   })
 }
 
-    const menuItem =<React.Fragment>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/blogs'>Blog</Link></li>
-        {
-          user?.uid ?
+    const menuItem = (
+      <React.Fragment>
+        <li className="font-semibold hover:text-orange-700">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="font-semibold hover:text-orange-700">
+          <Link to="/blogs">Blog</Link>
+        </li>
+        {user?.uid ? (
           <>
-          <li><Link to='dashboard'>Dashboard</Link></li>
-          <li><Link><button onClick={handleLogOut}>Log Out</button></Link></li>
+            <li className="font-semibold hover:text-orange-700">
+              <Link to="dashboard">Dashboard</Link>
+            </li>
+            <li className="font-semibold hover:text-orange-700">
+              <Link>
+                <button onClick={handleLogOut}>Log Out</button>
+              </Link>
+            </li>
           </>
-          :
+        ) : (
           <>
-          <li><Link to='/login'>Log in</Link></li>
+            <li className="font-semibold hover:text-orange-700">
+              <Link to="/login">Log in</Link>
+            </li>
           </>
-          
-        }
-        <li><Link to='/faq'>FAQ</Link></li>
-        <li><Link to='/contactUs'>Contact Us</Link></li>
-    </React.Fragment>
+        )}
+        <li className="font-semibold hover:text-orange-700">
+          <Link to="/faq">FAQ</Link>
+        </li>
+        <li className="font-semibold hover:text-orange-700">
+          <Link to="/contactUs">Contact Us</Link>
+        </li>
+      </React.Fragment>
+    );
     return (
         <div>
            <div className="navbar bg-base-100 lg:px-4">
