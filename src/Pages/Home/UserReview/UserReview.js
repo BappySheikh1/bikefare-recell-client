@@ -6,6 +6,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+// Testimonial and User review Component 
+
 const UserReview = () => {
     
     return (
