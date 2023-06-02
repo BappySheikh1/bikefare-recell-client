@@ -4,7 +4,7 @@ import { BsArrowRight } from "react-icons/bs";
 
 const AboutUs = () => {
   return (
-    <div>
+    <>
       <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">
         How it works
       </p>
@@ -15,7 +15,7 @@ const AboutUs = () => {
         <div className="lg:flex items-center justify-center lg:justify-around">
           <img
             data-aos="fade-right"
-            data-aos-duration="2000"
+            data-aos-duration="1500"
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             src="https://i.ibb.co/SwCnhbK/variant-color-image-160682555276344.png"
@@ -54,7 +54,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

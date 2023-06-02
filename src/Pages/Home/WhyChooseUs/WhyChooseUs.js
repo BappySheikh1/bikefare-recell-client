@@ -46,8 +46,8 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <div>
-      <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">
+    <>
+      <p className="p-2 mt-10 text-sm font-medium tracking-wider text-center uppercase">
         Because We are ultra creative agency
       </p>
       <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">
@@ -73,7 +73,7 @@ const WhyChooseUs = () => {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

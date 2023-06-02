@@ -47,7 +47,7 @@ const UserReview = () => {
                 perfect vintage ride!
               </p>
 
-              <div className=" mt-4">
+              <div className=" mt-16">
                 <img
                   src="https://demo.voidcoders.com/htmldemo/potoliaV2/main-files/assets/img/avatar/t-avatar-1.jpg"
                   className="rounded-xl mx-auto"
@@ -74,7 +74,7 @@ const UserReview = () => {
                 their dream vintage bike.
               </p>
 
-              <div className=" mt-4">
+              <div className=" mt-16">
                 <img
                   src="https://demo.voidcoders.com/htmldemo/potoliaV2/main-files/assets/img/avatar/t-avatar-2.jpg"
                   className="rounded-xl mx-auto"
@@ -102,7 +102,7 @@ const UserReview = () => {
                 their dream vintage bike.
               </p>
 
-              <div className=" mt-4">
+              <div className=" mt-16">
                 <img
                   src="https://demo.voidcoders.com/htmldemo/potoliaV2/main-files/assets/img/avatar/t-avatar-3.jpg"
                   className="rounded-xl mx-auto"

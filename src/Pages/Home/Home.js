@@ -8,12 +8,14 @@ import AboutUs from "./About/AboutUs";
 import Galley from "./Gallery/Galley";
 import WhyChooseUs from "./WhyChooseUs/WhyChooseUs";
 import Testimonial from "./Testimonial/Testimonial";
+import Feature from "./Featured/Feature";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <HomeBanner />
       <SecondHandProduct />
+      <Feature />
       <AboutUs />
       <AdvertisedItems />
       <Location />
@@ -21,7 +23,7 @@ const Home = () => {
       <Testimonial />
       <WhyChooseUs />
       <UserReview />
-    </div>
+    </>
   );
 };
 
